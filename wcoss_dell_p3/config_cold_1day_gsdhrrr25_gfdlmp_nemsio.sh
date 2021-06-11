@@ -15,6 +15,8 @@ PREEXISTING_DIR_METHOD="rename"
 USE_CRON_TO_RELAUNCH="TRUE"
 CRON_RELAUNCH_INTVL_MNTS="5"
 
+FCST_MODEL="fv3gfs_aqm"
+
 PREDEF_GRID_NAME="GSD_HRRR_25km"
 GRID_GEN_METHOD="ESGgrid"
 HALO_BLEND="0"
@@ -43,6 +45,7 @@ FV3_EXEC_FN="NEMS.x"
 FV3_NML_BASE_SUITE_FN="input.nml.fv3gfs_aqm_FV3_GFS_2017_gfdlmp"
 FV3_NML_YAML_CONFIG_FN="fv3gfs_aqm.input.yml"
 WFLOW_XML_FN="fv3gfs_aqm_wflow.xml"
+#ENABLE_AQ="FALSE"
 
 AQM_CONFIG_DIR="/gpfs/dell2/emc/modeling/noscrub/Jianping.Huang/fv3sar/aqm/epa/data"
 AQM_EMIS_DIR="/gpfs/dell2/emc/modeling/noscrub/Jianping.Huang/fv3sar/aqm/bio"
@@ -51,4 +54,5 @@ AQM_FIRE_FILE="GBBEPx_C401GRID.emissions_v003"
 AQM_LBCS_DIR="/gpfs/dell2/emc/retros/noscrub/Barry.Baker/emission"
 AQM_LBCS_FILES="gfs_bndy_chem_<MM>.tile7.000.nc"
 NEXUS_INPUT_DIR="/gpfs/dell2/emc/retros/noscrub/Barry.Baker/emissions"
+
 
