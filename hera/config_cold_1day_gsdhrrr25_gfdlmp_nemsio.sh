@@ -2,10 +2,6 @@ MACHINE="hera"
 ACCOUNT="naqfc"
 EXPT_SUBDIR="test_cmaq"
 
-QUEUE_DEFAULT="dev2"
-QUEUE_HPSS="dev2_transfer"
-QUEUE_FCST="dev2"
-
 VERBOSE="TRUE"
 PRINT_ESMF="TRUE"
 
