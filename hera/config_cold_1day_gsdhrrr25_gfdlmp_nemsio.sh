@@ -51,4 +51,5 @@ AQM_FIRE_FILE="GBBEPx_C401GRID.emissions_v003"
 AQM_LBCS_DIR="/scratch2/NCEPDEV/naqfc/RRFS_CMAQ/LBCS/boundary_conditions_v4"
 AQM_LBCS_FILES="gfs_bndy_chem_<MM>.tile7.000.nc"
 NEXUS_INPUT_DIR="/scratch1/NCEPDEV/rstprod/nexus_emissions"
-
+NEXUS_FIX_DIR="/scratch2/NCEPDEV/naqfc/RRFS_CMAQ/nexus/fix"
+NEXUS_GRID_FN="grid_spec_GSD_HRRR_25km.nc"
