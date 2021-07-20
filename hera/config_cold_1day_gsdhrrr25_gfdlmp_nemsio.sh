@@ -1,6 +1,6 @@
 MACHINE="hera"
 ACCOUNT="naqfc"
-EXPT_SUBDIR="test_cmaq"
+EXPT_SUBDIR="test_gefs_lbc"
 
 PRINT_ESMF="TRUE"
 
@@ -22,13 +22,15 @@ LBC_SPEC_INTVL_HRS="6"
 
 DATE_FIRST_CYCL="20190801"
 DATE_LAST_CYCL="20190801"
-CYCL_HRS=( "12" )
+CYCL_HRS=( "00" )
 
 WTIME_RUN_FCST="00:30:00"
 
 RUN_TASK_ADD_AQM_LBCS="TRUE"
 RUN_TASK_RUN_NEXUS="TRUE"
 RUN_TASK_RUN_POST="FALSE"
+
+RUN_ADD_AQM_GEFS_LBCS="TRUE"
 
 FV3_EXEC_FN="NEMS.x"
 FV3_NML_BASE_SUITE_FN="input.nml.fv3gfs_aqm_FV3_GFS_2017_gfdlmp"
@@ -42,6 +44,8 @@ AQM_FIRE_DIR="/scratch2/NCEPDEV/naqfc/RRFS_CMAQ/emissions/GSCE/GBBEPx.in.C401/Re
 AQM_FIRE_FILE="GBBEPx_C401GRID.emissions_v003"
 AQM_LBCS_DIR="/scratch2/NCEPDEV/naqfc/RRFS_CMAQ/LBCS/boundary_conditions_v4"
 AQM_LBCS_FILES="gfs_bndy_chem_<MM>.tile7.000.nc"
+AQM_GEFS_DIR="/scratch2/NCEPDEV/naqfc/RRFS_CMAQ/GEFS_aerosol"
 NEXUS_INPUT_DIR="/scratch1/NCEPDEV/rstprod/nexus_emissions"
 NEXUS_FIX_DIR="/scratch2/NCEPDEV/naqfc/RRFS_CMAQ/nexus/fix"
 NEXUS_GRID_FN="grid_spec_GSD_HRRR_25km.nc"
+
