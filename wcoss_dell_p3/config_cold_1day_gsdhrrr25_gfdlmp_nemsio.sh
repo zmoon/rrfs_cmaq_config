@@ -21,7 +21,7 @@ GRID_GEN_METHOD="ESGgrid"
 HALO_BLEND="0"
 
 CCPP_PHYS_SUITE="FV3_GFS_2017_gfdlmp"
-FCST_LEN_HRS="12"
+FCST_LEN_HRS="6"
 LBC_SPEC_INTVL_HRS="6"
 
 DATE_FIRST_CYCL="20190801"
@@ -32,6 +32,7 @@ WTIME_RUN_FCST="00:30:00"
 
 RUN_TASK_ADD_AQM_LBCS="TRUE"
 RUN_TASK_RUN_NEXUS="TRUE"
+RUN_TASK_RUN_POST="FALSE"
 
 FV3_EXEC_FN="NEMS.x"
 FV3_NML_BASE_SUITE_FN="input.nml.fv3gfs_aqm_FV3_GFS_2017_gfdlmp"
@@ -45,7 +46,7 @@ AQM_FIRE_DIR="/gpfs/dell2/emc/modeling/noscrub/RRFS_CMAQ/emissions/GSCE/GBBEPx.i
 AQM_FIRE_FILE="GBBEPx_C401GRID.emissions_v003"
 AQM_LBCS_DIR="/gpfs/dell2/emc/modeling/noscrub/RRFS_CMAQ/LBCS/boundary_conditions_v4"
 AQM_LBCS_FILES="gfs_bndy_chem_<MM>.tile7.000.nc"
+AQM_GEFS_DIR="/gpfs/dell2/emc/modeling/noscrub/RRFS_CMAQ/GEFS_aerosol"
 NEXUS_INPUT_DIR="/gpfs/dell2/emc/retros/noscrub/Barry.Baker/emissions"
 NEXUS_FIX_DIR="/gpfs/dell2/emc/modeling/noscrub/RRFS_CMAQ/nexus/fix"
 NEXUS_GRID_FN="grid_spec_GSD_HRRR_25km.nc"
-
