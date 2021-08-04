@@ -2,7 +2,7 @@ MACHINE="hera"
 ACCOUNT="naqfc"
 EXPT_SUBDIR="test_cmaq"
 
-PRINT_ESMF="TRUE"
+PRINT_ESMF="FALSE"
 
 RUN_ENVIR="community"
 PREEXISTING_DIR_METHOD="rename"
