@@ -1,10 +1,6 @@
 MACHINE="wcoss_dell_p3"
 ACCOUNT="CMAQ-T2O"
-EXPT_SUBDIR="test_cmaq_13km"
-
-QUEUE_DEFAULT="dev2"
-QUEUE_HPSS="dev2_transfer"
-QUEUE_FCST="dev2"
+EXPT_SUBDIR="test_cmaq_conus13"
 
 PRINT_ESMF="TRUE"
 
@@ -24,17 +20,15 @@ CCPP_PHYS_SUITE="FV3_GFS_2017_gfdlmp"
 FCST_LEN_HRS="6"
 LBC_SPEC_INTVL_HRS="6"
 
-DATE_FIRST_CYCL="20190801"
-DATE_LAST_CYCL="20190801"
+DATE_FIRST_CYCL="20190810"
+DATE_LAST_CYCL="20190810"
 CYCL_HRS=( "12" )
 
 WTIME_RUN_FCST="00:30:00"
-OMP_NUM_THREADS_RUN_FCST="2"
-PPN_RUN_FCST="12"
 
 RUN_TASK_ADD_AQM_LBCS="TRUE"
 RUN_TASK_RUN_NEXUS="TRUE"
-RUN_TASK_RUN_POST="TRUE"
+RUN_TASK_RUN_POST="FALSE"
 
 RUN_ADD_AQM_CHEM_LBCS="TRUE"
 RUN_ADD_AQM_GEFS_LBCS="TRUE"
@@ -45,14 +39,20 @@ FV3_NML_BASE_SUITE_FN="input.nml.fv3gfs_aqm_FV3_GFS_2017_gfdlmp"
 FV3_NML_YAML_CONFIG_FN="fv3gfs_aqm.input.yml"
 WFLOW_XML_FN="fv3gfs_aqm_wflow.xml"
 
-AQM_CONFIG_DIR="/gpfs/dell2/emc/modeling/noscrub/RRFS_CMAQ/aqm/epa/data"
-AQM_BIO_DIR="/gpfs/dell2/emc/modeling/noscrub/RRFS_CMAQ/aqm/bio"
+PPN_RUN_FCST="6"
+LAYOUT_X="33"
+LAYOUT_Y="8"
+BLOCKSIZE="29"
+
+AQM_CONFIG_DIR="/gpfs/dell2/emc/modeling/noscrub/Jianping.Huang/fv3sar/aqm/epa/data"
+AQM_BIO_DIR="/gpfs/dell2/emc/modeling/noscrub/Jianping.Huang/fv3sar/aqm/bio"
 AQM_BIO_FILE="BEIS_RRFScmaq_C775.ncf"
-AQM_FIRE_DIR="/gpfs/dell2/emc/modeling/noscrub/RRFS_CMAQ/emissions/GSCE/GBBEPx.in.RRFS_CONUS_13km/Reprocessed"
-AQM_FIRE_FILE="GBBEPx_all13kmGRID.emissions_v003"
-AQM_LBCS_DIR="/gpfs/dell2/emc/modeling/noscrub/RRFS_CMAQ/LBCS/RRFS_CONUS_13km_no_blending"
+
+AQM_FIRE_DIR="/gpfs/dell2/emc/retros/noscrub/Jianping.Huang/emissions/GSCE/GBBEPx.in.C775/Reprocessed"
+AQM_FIRE_FILE="GBBEPx_C775GRID.emissions_v003"
+AQM_LBCS_DIR="/gpfs/dell2/emc/modeling/noscrub/Jianping.Huang/LBCS/RRFS_CONUS_13km_no_blending"
 AQM_LBCS_FILES="gfs_bndy_chem_<MM>.tile7.000.nc"
 AQM_GEFS_DIR="/gpfs/dell2/emc/modeling/noscrub/RRFS_CMAQ/GEFS_aerosol"
 NEXUS_INPUT_DIR="/gpfs/dell2/emc/retros/noscrub/Barry.Baker/emissions"
-NEXUS_FIX_DIR="/gpfs/dell2/emc/modeling/noscrub/RRFS_CMAQ/nexus/fix"
+NEXUS_FIX_DIR="/gpfs/dell2/emc/modeling/noscrub/Jianping.Huang/emissions/nexus/fix"
 NEXUS_GRID_FN="grid_spec_RRFS_CONUS_13km.nc"
