@@ -40,6 +40,7 @@ FV3_NML_YAML_CONFIG_FN="fv3gfs_aqm.input.yml"
 WFLOW_XML_FN="fv3gfs_aqm_wflow.xml"
 
 PPN_RUN_FCST="6"
+DT_ATMOS="300"
 LAYOUT_X="33"
 LAYOUT_Y="8"
 BLOCKSIZE="29"
