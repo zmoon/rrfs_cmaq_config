@@ -2,7 +2,7 @@ MACHINE="wcoss_dell_p3"
 ACCOUNT="CMAQ-T2O"
 EXPT_SUBDIR="test_cmaq_conus13"
 
-PRINT_ESMF="TRUE"
+PRINT_ESMF="FALSE"
 
 RUN_ENVIR="community"
 PREEXISTING_DIR_METHOD="rename"
