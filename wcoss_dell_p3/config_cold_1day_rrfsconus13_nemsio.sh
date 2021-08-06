@@ -39,7 +39,7 @@ FV3_NML_BASE_SUITE_FN="input.nml.fv3gfs_aqm_FV3_GFS_2017_gfdlmp"
 FV3_NML_YAML_CONFIG_FN="fv3gfs_aqm.input.yml"
 WFLOW_XML_FN="fv3gfs_aqm_wflow.xml"
 
-DT_ATMOS="300"
+DT_ATMOS="180"
 LAYOUT_X="33"
 LAYOUT_Y="8"
 BLOCKSIZE="29"
