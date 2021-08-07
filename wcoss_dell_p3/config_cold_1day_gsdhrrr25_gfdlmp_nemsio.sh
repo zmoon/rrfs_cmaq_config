@@ -2,9 +2,9 @@ MACHINE="wcoss_dell_p3"
 ACCOUNT="CMAQ-T2O"
 EXPT_SUBDIR="test_cmaq"
 
-QUEUE_DEFAULT="dev2"
-QUEUE_HPSS="dev2_transfer"
-QUEUE_FCST="dev2"
+#QUEUE_DEFAULT="dev2"
+#QUEUE_HPSS="dev2_transfer"
+#QUEUE_FCST="dev2"
 
 PRINT_ESMF="FALSE"
 
