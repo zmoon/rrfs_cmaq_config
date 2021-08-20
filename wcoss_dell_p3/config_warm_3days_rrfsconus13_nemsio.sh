@@ -51,7 +51,7 @@ LAYOUT_Y="8"
 BLOCKSIZE="29"
 
 RESTART_WORKFLOW="TRUE"
-RESTART_INTERVAL="01"
+RESTART_INTERVAL="12"
 
 AQM_CONFIG_DIR="/gpfs/dell2/emc/modeling/noscrub/Jianping.Huang/fv3sar/aqm/epa/data"
 AQM_BIO_DIR="/gpfs/dell2/emc/modeling/noscrub/Jianping.Huang/fv3sar/aqm/bio"
