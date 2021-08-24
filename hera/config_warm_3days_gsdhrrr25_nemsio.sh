@@ -1,5 +1,6 @@
 MACHINE="hera"
 ACCOUNT="naqfc"
+EXPT_BASEDIR="/scratch2/NCEPDEV/stmp3/$LOGNAME/expt_dirs"
 EXPT_SUBDIR="test_restart_3d"
 
 PRINT_ESMF="FALSE"
