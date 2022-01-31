@@ -25,8 +25,8 @@ CCPP_PHYS_SUITE="FV3_GFS_2017_gfdlmp"
 FCST_LEN_HRS="48"
 LBC_SPEC_INTVL_HRS="6"
 
-DATE_FIRST_CYCL="20190801"
-DATE_LAST_CYCL="20190802"
+DATE_FIRST_CYCL="20190806"
+DATE_LAST_CYCL="20190807"
 CYCL_HRS=( "12" )
 INCR_CYCL_FREQ="24"
 
@@ -64,4 +64,4 @@ AQM_GEFS_DIR="/gpfs/dell2/emc/modeling/noscrub/RRFS_CMAQ/GEFS_aerosol"
 NEXUS_INPUT_DIR="/gpfs/dell2/emc/retros/noscrub/Barry.Baker/emissions"
 NEXUS_FIX_DIR="/gpfs/dell2/emc/modeling/noscrub/RRFS_CMAQ/nexus/fix"
 NEXUS_GRID_FN="grid_spec_GSD_HRRR_25km.nc"
-RESTART_CYCLE_DIR="/gpfs/dell2/emc/modeling/noscrub/RRFS_CMAQ/restart/GSD_HRRR_25km/2019073112"
+RESTART_CYCLE_DIR="/gpfs/dell2/emc/modeling/noscrub/RRFS_CMAQ/restart/GSD_HRRR_25km/2019080612"
