@@ -46,7 +46,8 @@ FV3_NML_BASE_SUITE_FN="input.nml.fv3gfs_aqm"
 FV3_NML_YAML_CONFIG_FN="fv3gfs_aqm.input.yml"
 WFLOW_XML_FN="fv3gfs_aqm_wflow.xml"
 
-AQM_RC_FN="aqm.rc"
+USER_AQM_RC_DIR="/gpfs/dell2/emc/modeling/save/Chan-Hoo.Jeon/rrfs_cmaq_pr/ufs-srweather-app/conf_cpl/fv3gfs_aqm/sample_config"
+AQM_RC_FN="aqm.rc_static"
 
 AQM_CONFIG_DIR="/gpfs/dell2/emc/modeling/noscrub/RRFS_CMAQ/aqm/epa/data"
 AQM_BIO_DIR="/gpfs/dell2/emc/modeling/noscrub/RRFS_CMAQ/aqm/bio"
