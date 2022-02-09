@@ -48,7 +48,7 @@ FV3_EXEC_FN="NEMS.x"
 FV3_NML_BASE_SUITE_FN="input.nml.fv3gfs_aqm"
 FV3_NML_YAML_CONFIG_FN="fv3gfs_aqm.input.yml"
 
-USER_AQM_RC_DIR="/scratch2/NCEPDEV/fv3-cam/Chan-hoo.Jeon/rrfs_cmaq_pr/ufs-srweather-app/conf_cpl/fv3gfs_aqm/sample_config"
+USER_AQM_RC_DIR="/scratch2/NCEPDEV/naqfc/RRFS_CMAQ/sample_config"
 AQM_RC_FN="aqm.rc"
 
 AQM_CONFIG_DIR="/scratch2/NCEPDEV/naqfc/RRFS_CMAQ/aqm/epa/data"
