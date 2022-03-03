@@ -34,18 +34,16 @@ WTIME_RUN_FCST="00:30:00"
 RUN_TASK_ADD_AQM_LBCS="TRUE"
 RUN_TASK_RUN_NEXUS="TRUE"
 RUN_TASK_RUN_POST="TRUE"
+RUN_TASK_RUN_POST_STAT="FALSE"
 
 RUN_ADD_AQM_CHEM_LBCS="TRUE"
 RUN_ADD_AQM_GEFS_LBCS="TRUE"
 AQM_GEFS_CYC="00"
 
-OPT_DA_RRFS_CMAQ="FALSE"
-
-FV3_EXEC_FN="NEMS.x"
 FV3_NML_BASE_SUITE_FN="input.nml.fv3gfs_aqm"
 FV3_NML_YAML_CONFIG_FN="fv3gfs_aqm.input.yml"
 
-USER_AQM_RC_DIR="/gpfs/dell2/emc/modeling/save/Chan-Hoo.Jeon/rrfs_cmaq_pr/ufs-srweather-app/conf_cpl/fv3gfs_aqm/sample_config"
+#USER_AQM_RC_DIR="/gpfs/dell2/emc/modeling/save/Chan-Hoo.Jeon/rrfs_cmaq_pr/regional_workflow/ush/template"
 AQM_RC_FN="aqm.rc"
 
 AQM_CONFIG_DIR="/gpfs/dell2/emc/modeling/noscrub/RRFS_CMAQ/aqm/epa/data"
@@ -58,6 +56,6 @@ AQM_RC_FIRE_FREQUENCY="static"
 AQM_LBCS_DIR="/gpfs/dell2/emc/modeling/noscrub/RRFS_CMAQ/LBCS/boundary_conditions_v4"
 AQM_LBCS_FILES="gfs_bndy_chem_<MM>.tile7.000.nc"
 AQM_GEFS_DIR="/gpfs/dell2/emc/modeling/noscrub/RRFS_CMAQ/GEFS_aerosol"
-NEXUS_INPUT_DIR="/gpfs/dell2/emc/retros/noscrub/Barry.Baker/emissions"
+NEXUS_INPUT_DIR="/gpfs/dell2/emc/modeling/noscrub/RRFS_CMAQ/nexus/nexus_emissions"
 NEXUS_FIX_DIR="/gpfs/dell2/emc/modeling/noscrub/RRFS_CMAQ/nexus/fix"
 NEXUS_GRID_FN="grid_spec_GSD_HRRR_25km.nc"
