@@ -30,9 +30,9 @@ FV3GFS_FILE_FMT_ICS="grib2"
 FV3GFS_FILE_FMT_LBCS="grib2"
 
 USE_USER_STAGED_EXTRN_FILES="TRUE"
-EXTRN_MDL_SOURCE_BASEDIR_ICS="/work/noaa/fv3-cam/RRFS_CMAQ/staged_data/${yyyymmddhh}"
+EXTRN_MDL_SOURCE_BASEDIR_ICS='/work/noaa/fv3-cam/RRFS_CMAQ/staged_data/${yyyymmddhh}'
 EXTRN_MDL_FILES_ICS=( )
-EXTRN_MDL_SOURCE_BASEDIR_LBCS="/work/noaa/fv3-cam/RRFS_CMAQ/staged_data/${yyyymmddhh}"
+EXTRN_MDL_SOURCE_BASEDIR_LBCS='/work/noaa/fv3-cam/RRFS_CMAQ/staged_data/${yyyymmddhh}'
 EXTRN_MDL_FILES_LBCS=( )
 EXTRN_MDL_DATA_STORES="disk"
 
