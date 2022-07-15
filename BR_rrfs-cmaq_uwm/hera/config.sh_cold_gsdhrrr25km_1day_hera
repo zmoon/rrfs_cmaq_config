@@ -1,3 +1,4 @@
+
 MACHINE="hera"
 ACCOUNT="naqfc"
 EXPT_BASEDIR="/scratch2/NCEPDEV/stmp3/$LOGNAME/expt_dirs"
@@ -24,6 +25,8 @@ DATE_FIRST_CYCL="20190805"
 DATE_LAST_CYCL="20190805"
 CYCL_HRS=( "12" )
 
+RESTART_INTERVAL="6"
+
 WTIME_RUN_FCST="00:30:00"
 
 RUN_TASK_ADD_AQM_LBCS="TRUE"
@@ -34,11 +37,11 @@ RUN_ADD_AQM_CHEM_LBCS="TRUE"
 RUN_ADD_AQM_GEFS_LBCS="TRUE"
 AQM_GEFS_CYC="00"
 
-DIAG_TABLE_FN="diag_table_aqm"
-FIELD_TABLE_FN="field_table_aqm"
+DIAG_TABLE_TMPL_FN="diag_table_aqm"
+FIELD_TABLE_TMPL_FN="field_table_aqm"
 
 #USER_AQM_RC_DIR="/scratch2/NCEPDEV/naqfc/RRFS_CMAQ/sample_config"
-AQM_RC_FN="aqm.rc"
+AQM_RC_TMPL_FN="aqm.rc"
 
 AQM_CONFIG_DIR="/scratch2/NCEPDEV/naqfc/RRFS_CMAQ/aqm/epa/data"
 AQM_BIO_DIR="/scratch2/NCEPDEV/naqfc/RRFS_CMAQ/aqm/bio"
