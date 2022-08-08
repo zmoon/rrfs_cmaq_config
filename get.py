@@ -39,7 +39,7 @@ df = df0.sort_index(axis="columns")
 print(df)
 
 
-def get_defaults(df, *, exclude=None):
+def get_defaults(df, *, exclude=None, ignore_missing=False):
     """Find columns where there is only one unique non-NaN value,
     and extract those key-value pairs."""
     if exclude is None:
@@ -50,6 +50,8 @@ def get_defaults(df, *, exclude=None):
             continue
         nna = ~pd.isna(uniques)
         n = np.count_nonzero(nna)
+        if not ignore_missing and n != len(uniques):
+            continue
         if n <= 1:
             vs = uniques[nna]
             assert vs.size == 1
