@@ -55,7 +55,7 @@ defaults = get_defaults(df)
 pprint(defaults)
 print(len(defaults))
         
-assert set(df.MACHINE.unique()) == {"hera", "wcoss_dell_p3"}
+assert set(df.MACHINE.unique()) == {"hera", "wcoss_dell_p3", "orion"}
 
 print()
 print("Hera defaults (in addition):")
