@@ -3,6 +3,7 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+import yaml
 
 
 HERE = Path(__file__).parent
@@ -47,7 +48,7 @@ def get_defaults(df, *, exclude=None):
     for k, uniques in df.apply(lambda x: x.unique(), axis="rows").items():
         if k in exclude:
             continue
-        nna = ~ pd.isna(uniques)
+        nna = ~pd.isna(uniques)
         n = np.count_nonzero(nna)
         if n <= 1:
             vs = uniques[nna]
@@ -72,7 +73,7 @@ for mach in ["hera", "wcoss_dell_p3", "orion"]:
     print(mach)
     defaults_ = get_defaults(
         df.query(f"MACHINE == '{mach}'").dropna(axis="columns", how="all"),
-        exclude=fixed,
+        exclude=fixed | {"MACHINE"},
     )
     pprint(defaults_)
     defaults_mach[mach] = defaults_
@@ -84,20 +85,35 @@ for br in df._branch_id.unique():
     print(br)
     defaults_ = get_defaults(
         df.query(f"_branch_id == '{br}'").dropna(axis="columns", how="all"),
-        exclude=fixed,
+        exclude=fixed | {"_branch_id"},
     )
     pprint(defaults_)
     defaults_br[br] = defaults_
 
 # Extract remaining settings for individual config files
-j_br = df.columns.to_list().index("_branch_id")
-for row in df.itertuples(index=False):
-    # print(row)
-    n = len(row)
+remaining = []
+for _, row in df.iterrows():
     mach = row.MACHINE
-    br = getattr(row, f"_{j_br}")  # ones starting with underscore get renamed automatically
+    br = row._branch_id
     already_set = fixed.union(defaults_mach[mach], defaults_br[br])
-    d = row._asdict()
-    d_ = {k: v for k, v in d.items() if k not in already_set}
-    print(d_)
+    already_set -= {"MACHINE", "_branch_id"}  # need these to get their defaults
+    d = row.to_dict()
+    d_ = {k: v for k, v in d.items() if k not in already_set and not pd.isna(v)}
+    if "_sub_id" not in d_:
+        d_["_sub_id"] = None
+    remaining.append(d_)
 
+# Write file
+with open("config.yml", "w") as f:
+    f.write("# Config settings for generating individual config files\n#\n")
+
+    yaml.dump({"defaults": defaults}, f)
+
+    f.write("\n")
+    yaml.dump({"mach_defaults": defaults_mach}, f)
+
+    f.write("\n")
+    yaml.dump({"branch_defaults": defaults_br}, f)
+
+    f.write("\n")
+    yaml.dump({"configs": remaining}, f, default_flow_style=False)
