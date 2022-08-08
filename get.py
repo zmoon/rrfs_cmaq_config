@@ -13,11 +13,16 @@ ds = []
 for p in sorted(ps):
     print(p.as_posix())
 
-    dir0 = p.relative_to(HERE).parts[0]
+    prel = p.relative_to(HERE)
+    dir0 = prel.parts[0]
     assert dir0.startswith("BR_")
     br = dir0[3:]
 
-    d = {"_branch_id": br}
+    sub_id = np.nan
+    if prel.parts[1] not in {"hera", "wcoss_dell_p3", "orion"}:
+        sub_id = prel.parts[1]
+
+    d = {"_fn": p.name, "_branch_id": br, "_sub_id": sub_id}
     with open(p) as f:
         for line in f:
             line = line.strip()
@@ -33,15 +38,18 @@ df = df0.sort_index(axis="columns")
 print(df)
 
 
-def get_defaults(df):
+def get_defaults(df, *, exclude=None):
     """Find columns where there is only one unique non-NaN value,
     and extract those key-value pairs."""
+    if exclude is None:
+        exclude = set()
     defaults = {}
     for k, uniques in df.apply(lambda x: x.unique(), axis="rows").items():
+        if k in exclude:
+            continue
         nna = ~ pd.isna(uniques)
         n = np.count_nonzero(nna)
         if n <= 1:
-            # print(k, uniques)
             vs = uniques[nna]
             assert vs.size == 1
             defaults[k] = vs[0]
@@ -53,28 +61,43 @@ print()
 print("Overall defaults:")
 defaults = get_defaults(df)
 pprint(defaults)
-print(len(defaults))
-        
+fixed = set(defaults)
+print(len(fixed), "settings are the same in all files")
+
 assert set(df.MACHINE.unique()) == {"hera", "wcoss_dell_p3", "orion"}
 
-print()
-print("Hera defaults (in addition):")
-hera = df.query("MACHINE == 'hera'").dropna(axis="columns", how="all")
-hera_defaults = get_defaults(hera)
-hera_defaults_new = {k: v for k, v in hera_defaults.items() if k not in defaults}
-pprint(hera_defaults_new)
-print(len(hera_defaults_new))
+# Extract machine-specific settings
+defaults_mach = {}
+for mach in ["hera", "wcoss_dell_p3", "orion"]:
+    print(mach)
+    defaults_ = get_defaults(
+        df.query(f"MACHINE == '{mach}'").dropna(axis="columns", how="all"),
+        exclude=fixed,
+    )
+    pprint(defaults_)
+    defaults_mach[mach] = defaults_
+    # fixed.update(defaults_mach)
 
-print()
-print("WCOSS defaults (in addition):")
-wcoss = df.query("MACHINE == 'wcoss_dell_p3'").dropna(axis="columns", how="all")
-wcoss_defaults = get_defaults(wcoss)
-wcoss_defaults_new = {k: v for k, v in wcoss_defaults.items() if k not in defaults}
-pprint(wcoss_defaults_new)
-print(len(wcoss_defaults_new))
+# Extract branch-specific settings
+defaults_br = {}
+for br in df._branch_id.unique():
+    print(br)
+    defaults_ = get_defaults(
+        df.query(f"_branch_id == '{br}'").dropna(axis="columns", how="all"),
+        exclude=fixed,
+    )
+    pprint(defaults_)
+    defaults_br[br] = defaults_
 
-defs = set([*defaults, *hera_defaults_new])
-d = {k: v for k, v in df.iloc[9].items() if k not in defs and not pd.isna(v)}
-pprint(d)
-d = {k: v for k, v in df.iloc[8].items() if k not in defs and not pd.isna(v)}
-pprint(d)
+# Extract remaining settings for individual config files
+j_br = df.columns.to_list().index("_branch_id")
+for row in df.itertuples(index=False):
+    # print(row)
+    n = len(row)
+    mach = row.MACHINE
+    br = getattr(row, f"_{j_br}")  # ones starting with underscore get renamed automatically
+    already_set = fixed.union(defaults_mach[mach], defaults_br[br])
+    d = row._asdict()
+    d_ = {k: v for k, v in d.items() if k not in already_set}
+    print(d_)
+
